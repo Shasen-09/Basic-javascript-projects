@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    { "source": "/countdown", "destination": "/countdown/index.html" },
+    { "source": "/analog", "destination": "/analog/index.html" },
+    { "source": "/digitalclock", "destination": "/digitalclock/index.html" },
+    { "source": "/todolist", "destination": "/todolist/index.html" },
+    { "source": "/calculator", "destination": "/calculator/index.html" },
+    { "source": "/form", "destination": "/form/index.html" },
+    { "source": "/passwordgenerator", "destination": "/passwordgenerator/index.html" },
+    { "source": "/pomodros", "destination": "/pomodros/index.html" },
+    { "source": "/qrgenerator", "destination": "/qrgenerator/index.html" },
+    { "source": "/stopwatch", "destination": "/stopwatch/index.html" }
+
+    
+  ]
+}
