@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Structure</title>
+  <style>
+    :root{
+      --border-radius: 5px;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    body{
+      background-color: antiquewhite;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      flex-direction: column;
+      align-items: center;
+    }
+    .head h1{
+      font-size: 20px;
+      text-align: center;
+    }
+    .head input{
+      margin: 10px;
+      border: none;
+      padding: 10px;
+      width: 300px;
+      border-radius: var(--border-radius);
+    }
+    .head button{
+      padding: 10px;
+      border-radius: var(--border-radius);
+      border: none;
+      background-color: rgb(8, 168, 8);
+      color: white;
+      font-weight: bold;
+    }
+    .head button:hover{
+      background-color: green;
+      cursor: pointer;
+    }
+    ul{
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    ul li{
+      list-style-type: none ;
+      cursor: pointer;
+      margin-block-end: 12px;
+      border-radius: var(--border-radius);
+      border: 0.125px solid #a19f9f;
+      padding: 6px 12px;
+      background-color: #ffffff;
+      width: 380px;
+      margin-left: 2cm;
+      color: #373333;
+    }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <h1>My To Do List</h1>
+    <input type="text" placeholder="Add a new to do..."><button>Add</button>
+    <ul>
+      <li>Learn CSS</li>
+      <li>Learn Javascript</li>
+      <li>Make JS Projects</li>
+      <li>Learn React</li>
+    </ul>
+    
+  </div>
+  <script>
+    const userInput = document.querySelector('.head input[type="text"]');
+    const addButton = document.querySelector('.head button');
+    const ul = document.querySelector('ul');
+  
+    addButton.addEventListener('click', function() {
+      const inputValue = userInput.value.trim();
+      
+      if (inputValue !== '') {
+        const li = document.createElement('li');
+        li.textContent = inputValue;
+        ul.appendChild(li);
+  
+        // Clear the input field after adding
+        userInput.value = '';
+      }
+    });
+  </script>
+  
+</body>
+</html>

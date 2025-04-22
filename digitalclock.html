@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Clock</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    body{
+      background:linear-gradient(to bottom right,rgb(0, 130, 217),rgb(223, 182, 18));
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('download.jpeg');
+      background-repeat:no-repeat;
+      background-size: cover;
+      color: white;
+    }
+   .clock h1{
+      font-size: 3.5rem;
+      font-weight: 600;
+      
+    }
+    .clock {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      box-shadow: 0px 0px 8px white;
+      padding: 30px;
+      border-radius: 20px;
+    }
+    .ampm{
+      position: relative;
+      margin-top: -8%;
+      margin-left: 5px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .hour, .min, .seconds{
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <h1 class="time"><span  class="hour">12</span>:<span class="min">00</span>:<span class="seconds">00</span></h1><span class="ampm">AM</span>
+  </div>
+  <script>
+    const time = document.querySelector('.time');
+    const ampm = document.querySelector('.ampm');
+    const hour = document.querySelector('.hour');
+    const min = document.querySelector('.min');
+    const seconds = document.querySelector('.seconds');
+    
+
+    function digital(){
+      const currentTime = new Date();
+
+      let h = currentTime.getHours();
+      let m = currentTime.getMinutes();
+      let s = currentTime.getSeconds();
+
+      let ampmText = h >= 12? 'PM':'AM';
+      if(h>12) h -= 12;
+      if(h===0) h = 12;
+
+      m = m<10 ? '0'+m : m;
+      s = s<10 ? '0'+s : s;
+
+      hour.textContent = h;
+      min.textContent = m;
+      seconds.textContent = s;
+      ampm.textContent = ampmText;
+
+    }
+
+    setInterval(digital,1000);
+    digital();
+  </script>
+</body>
+</html>

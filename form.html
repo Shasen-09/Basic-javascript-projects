@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    body{
+      color: white;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+
+    }
+    .sign{
+      width: 400px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 2px 2px 5px #89c9f3, -2px -2px 5px #89c9f3;
+      border-radius: 8px;
+      backdrop-filter: blur;
+      padding: 20px 40px;
+    }
+    .signup-header h1{
+      text-align: center;
+      font-size: 2.2rem;
+      padding: 5px 8px;
+    }
+    
+    .signup-body p{
+      margin-top: 20px;
+    }
+    .signup-body p label{
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .signup-body p input{
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      margin-block: 4px;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      color: #000;
+    }
+    .signup-body p input[type="submit"]{
+      border: none;
+      background-color: #3498db;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      width: 105%;
+
+    }
+    .signup-footer p{
+      text-align: center;
+      font-weight: 600;
+      margin-top:20px;
+    }
+    .signup-footer p a{
+      text-decoration: none;
+      color: #fff ;
+    }
+    .signup-footer p a:hover{
+      text-decoration: underline;
+    }
+
+    
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sign">
+      <header class="signup-header">
+        <h1>Signup</h1>
+      </header>
+      <main class="signup-body">
+        <form class="op">
+          <p>
+          <label for="name">Full Name</label>
+          <input type="text" placeholder="Type Name Here" id="name" required/></p>
+          <p>
+            <label for="email">Email</label>
+            <input type="email" placeholder="xyz@gmail.com" id="email" required/>
+          </p>
+          
+          <p>
+            <label for="password">Password</label>
+            <input type="password" placeholder="at least 8 characters" id="password" required max="30" min="8"/>
+          </p>
+          <p>
+          <input type="submit" value="Create Account"></p>
+          </form>
+        </main>
+        <footer class="signup-footer">
+          <p>Already have an account?<a href="">Login</a></p>
+        </footer>
+    </div>
+  </div>
+  <script>
+      
+  </script>
+</body>
+</html>

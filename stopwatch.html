@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stop watch</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      font-family: sans-serif;
+    }
+    body{
+      background: linear-gradient(to right bottom, black, grey);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      
+    }
+    .time{
+      color: white;
+      background-color: #000000;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 41px;
+       
+    }
+    .buttons{
+      padding: 10px;
+      margin: 10px;
+      margin-left: 15px;
+      
+      
+    }
+    .btn1, .btn2, .btn3{
+      font-weight: bold;
+      font-size: 15px;
+      padding: 10px;
+      margin-left: 2px;
+      margin-right: 10px;
+      border-radius: 10px;
+      color: white;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="time">
+   <div class="timer"><span class="hour">00</span>:<span class="min">00</span>:<span class="seconds">00</span></div>
+  </div>
+  <div class="buttons">
+  <button class="btn1" style="background-color: red;" >Stop</button>
+  <button class="btn2" style="background-color: green;">Start</button>
+  <button class="btn3" style="background-color: blue;">Reset</button></div>
+  <script>
+    const hour = document.querySelector('.hour');
+    const min = document.querySelector('.min');
+    const seconds = document.querySelector('.seconds');
+    const stopbtn = document.querySelector('.btn1');
+    const startbtn = document.querySelector('.btn2');
+    const resetbtn = document.querySelector('.btn3');
+
+    let timer;
+    let sec = 0, minCount = 0, hr = 0;
+    let isRunning = false;
+
+    function startWatch(){
+      if(!isRunning){
+        isRunning = true;
+        timer = setInterval (()=>{
+          sec++;
+          if(sec === 60){
+            sec = 0;
+            minCount++;
+          }
+          if(minCount===60){
+            minCount = 0;
+            hr++;
+          }
+          hour.textContent = hr.toString().padStart(2, '0');
+          min.textContent = minCount.toString().padStart(2, '0');
+          seconds.textContent = sec.toString().padStart(2 ,'0');
+        },1000);
+        }
+      }
+      function stopWatch(){
+        clearInterval(timer);
+        isRunning = false;
+      }
+      function resetWatch(){
+        clearInterval(timer);
+        isRunning = false;
+        sec = 0; minCount = 0; hr = 0;
+        hour.textContent = '00';
+        min.textContent = '00';
+        seconds.textContent = '00';
+      }
+      
+      stopbtn.addEventListener('click',stopWatch);
+      startbtn.addEventListener('click',startWatch);
+      resetbtn.addEventListener('click',resetWatch);
+      
+     
+
+  </script>
+</body>
+</html>

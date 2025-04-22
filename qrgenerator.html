@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Generator</title>
+  <style>
+    :root{
+      --bcg-color: #001122;
+      --primary-color: #155e75;
+      --border-radius: 8px;
+      --text-color: white;
+      --border-color: #7fb7c9;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    body{
+      width: 100%;
+      background-color: var(--bcg-color);
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .qr{
+      background-color: var(--primary-color);
+      padding: 30px;
+      width: 400px;
+      border-radius: var(--border-radius);
+      text-align: center;
+    }
+    .qr-header h1{
+      font-size: 26px;
+      text-align: center;
+      color: var(--text-color);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .qr-header input{
+      width: 100%;
+      margin-block: 12px;
+    }
+    .qr-header input, select{
+      padding: 8px;
+      border-radius: var(--border-radius);
+      font-size: 18px;
+      outline: none;
+      border: 2px solid var(--border-color);
+    }
+    .qr-header label{
+      color: var(--text-color);
+      font-size: 20px;
+    }
+    .qr-header div{
+      display: flex;
+      justify-content: space-between;
+    }
+    .qr-footer{
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    .qr-footer a{
+      background-color: var(--text-color);
+      text-decoration: none;
+      font-size: 20px;
+      padding: 14px 36px;
+      margin-inline: 2px;
+      color: var(--primary-color);
+      font-weight: 600;
+      border-radius: var(--border-radius);
+    }
+  </style>
+</head>
+<body>
+  <div class="qr">
+    <div class="qr-header">
+      <h1>GENERATE QR CODE</h1>
+      <input type="text" placeholder="Type your text or URL">
+      <div>
+      <label for="sizes">Select Size:</label>
+      <select id="sizes">
+          <option value="100">100x100</option>
+          <option value="200">200x200</option>
+          <option value="300">300x300</option>
+          <option value="400">400x400</option>
+          <option value="500">500x500</option>
+          <option value="600">600x600</option>
+          <option value="700">700x700</option>
+          <option value="800">800x800</option>
+          <option value="900">900x900</option>
+          <option value="1000">1000x1000</option>
+      </select>
+      </div>
+      <div class="qr-body"></div>
+      <div class="qr-footer">
+        <a href="">Generate</a>
+        <a href="">Download</a>
+      </div>
+    </div> 
+  </div>  
+  <script>
+
+  </script>
+</body>
+</html>

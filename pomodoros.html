@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POMODOROS</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  body{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    font-weight: 600;
+  }
+  .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .timer h1{
+    padding: 50px;
+    background-color: gray;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  .timer+p{
+    padding: 20px;
+    
+  }
+  button{
+    
+    margin: 0  10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+  .ee{
+    margin-top: -0.5cm;
+  }
+
+</style>
+<body>
+  <div class="timer">
+    <h1><span class="min">25</span>:<span class="sec">00</span></h1>
+  </div>
+  <p class="ee">Timer Paused</p>
+  <div class="box">
+   <div><button style="background-color: green;" class="startbtn">Start</button></div> 
+   <div><button style="background-color: red;" class="pausebtn">Pause</button></div>
+   <div><button style="background-color: blue;" class="resumebtn">Resume</button></div>
+   <div><button style="background-color: rgb(255, 184, 5);" class="resetbtn">Reset</button></div>
+  </div>
+  <div><h1 class="round">0</h1></div>
+  <p>Pomodoros Completed</p>
+  <script>
+    const min = document.querySelector('.min');
+    const sec = document.querySelector('.sec');
+    const status = document.querySelector('.ee');
+    const rounds = document.querySelector('.round');
+
+    let timer;
+    let isRunning = false;
+    let second = 0;
+    let minute = 25;
+    let completedpomodoros = 0;
+
+
+
+    function startWatch(){
+      if(!isRunning){
+        isRunning = true;
+        status.textContent = 'Timer Running...'
+        timer = setInterval(() => {
+          if(second === 0 && minute  === 0){
+            clearInterval(timer);
+            isRunning = false;
+            completedpomodoros++;
+            rounds.textContent = completedpomodoros;
+            status.textContent = 'Take a break!';
+          } else{
+            if(second===0){
+              second=59;
+              minute--;
+            }else{
+              second--;
+            }
+          }
+
+          min.textContent = minute.toString().padStart(2,'0');
+          sec.textContent = second.toString().padStart(2 ,'0');
+          
+        }, 1000);
+      }
+
+    }
+ 
+    function pauseWatch(){
+      clearInterval(timer);
+      isRunning = false;
+      status.textContent = 'Timer paused!';
+    }
+
+    function resumeWatch(){
+      if(!isRunning){
+        startWatch();
+      }
+    }
+
+    function resetWatch(){
+      clearInterval(timer);
+      isRunning = false;
+      status.textContent = 'Timer reset.'
+      completedpomodoros = 0;
+      rounds.textContent = completedpomodoros;
+      minute = 25;
+      second = 0;
+      min.textContent = '25';
+      sec.textContent = '00';
+
+    }
+    document.querySelector('.startbtn').addEventListener('click',startWatch);
+    document.querySelector('.pausebtn').addEventListener('click',pauseWatch);
+    document.querySelector('.resumebtn').addEventListener('click',resumeWatch);
+    document.querySelector('.resetbtn').addEventListener('click',resetWatch);
+  </script>
+</body>
+</html>
